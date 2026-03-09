@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caper Cart Case Study — Siva Thota, APM Candidate</title>
-  <meta name="description" content="A product case study by Siva Thota examining Caper Cart positioning — APM Candidate at Instacart." />
+  <title>Caper Cart Case Study by Siva Thota, APM Candidate at Instacart</title>
+  <meta name="description" content="A product case study by Siva Thota examining Caper Cart positioning. APM Candidate at Instacart." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -1075,6 +1075,211 @@
     body.nav-open { overflow: hidden; }
 
     /* ============================================================
+       INSTACART BRAND BANNER
+    ============================================================ */
+    #brand-banner {
+      background: var(--charcoal);
+      border-bottom: 2px solid var(--green);
+      padding: 9px 0;
+      text-align: center;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .banner-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .banner-inner strong {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* Offset nav so it sits below banner */
+    #nav {
+      top: 38px !important;
+    }
+
+    #hero {
+      padding-top: 150px !important;
+    }
+
+    @media (max-width: 600px) {
+      #brand-banner { padding: 8px 12px; }
+      .banner-inner { font-size: 11px; }
+      #nav { top: 36px !important; }
+      #hero { padding-top: 140px !important; }
+    }
+
+    /* ============================================================
+       DATA CHARTS
+    ============================================================ */
+
+    /* ── Horizontal bar chart ── */
+    .data-chart {
+      background: var(--white);
+      border: 1px solid rgba(28,28,28,0.08);
+      border-radius: var(--radius);
+      padding: 36px 36px 28px;
+      margin-top: 48px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .data-chart-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    .data-chart-subtitle {
+      font-size: 12.5px;
+      color: var(--gray-text);
+      margin-bottom: 28px;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .bar-label {
+      font-size: 13px;
+      color: #3C3C36;
+      font-weight: 500;
+      flex: 0 0 260px;
+      line-height: 1.35;
+    }
+
+    .bar-track {
+      flex: 1;
+      background: var(--gray-light);
+      border-radius: 100px;
+      height: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: var(--green);
+      width: 0%;
+      transition: width 1.2s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    .bar-fill.orange { background: var(--orange); }
+    .bar-fill.charcoal { background: var(--charcoal); }
+
+    .bar-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--charcoal);
+      flex: 0 0 40px;
+      text-align: right;
+    }
+
+    .data-chart-source {
+      font-size: 11px;
+      color: var(--gray-text);
+      font-style: italic;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    /* ── Market growth bar chart ── */
+    .growth-chart {
+      background: var(--white);
+      border: 1px solid rgba(28,28,28,0.08);
+      border-radius: var(--radius);
+      padding: 36px 36px 28px;
+      margin-top: 48px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .growth-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      height: 160px;
+      margin: 28px 0 16px;
+    }
+
+    .growth-bar-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .growth-bar-fill {
+      width: 100%;
+      border-radius: 6px 6px 0 0;
+      background: var(--green);
+      opacity: 0.3;
+      transition: height 1.2s cubic-bezier(0.22,1,0.36,1), opacity 0.4s;
+      height: 0;
+    }
+
+    .growth-bar-fill.active {
+      opacity: 1;
+    }
+
+    .growth-bar-fill.highlight {
+      background: var(--green);
+    }
+
+    .growth-bar-amount {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--charcoal);
+      white-space: nowrap;
+    }
+
+    .growth-bar-year {
+      font-size: 11px;
+      color: var(--gray-text);
+      font-weight: 600;
+    }
+
+    .growth-cagr-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(67,176,42,0.1);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .bar-label { flex: 0 0 160px; font-size: 12px; }
+      .data-chart { padding: 24px 20px; }
+      .growth-chart { padding: 24px 20px; }
+      .growth-bars { gap: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      .bar-label { flex: 0 0 120px; font-size: 11px; }
+    }
+
+    /* ============================================================
        SCROLL PROGRESS BAR
     ============================================================ */
     #progress-bar {
@@ -1125,12 +1330,20 @@
   <!-- PROGRESS BAR -->
   <div id="progress-bar"></div>
 
+  <!-- INSTACART BRAND BANNER -->
+  <div id="brand-banner">
+    <div class="banner-inner">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="#43B02A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="#43B02A" stroke-width="2" stroke-linecap="round"/><path d="M16 10a4 4 0 01-8 0" stroke="#43B02A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Cold outreach artifact for <strong>Instacart</strong> &nbsp;·&nbsp; APM Candidate Application &nbsp;·&nbsp; Siva Thota</span>
+    </div>
+  </div>
+
   <!-- NAV -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <div class="nav-brand">
-        <div class="nav-brand-dot"></div>
-        Siva Thota — APM Case Study
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="#43B02A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="#43B02A" stroke-width="2.2" stroke-linecap="round"/><path d="M16 10a4 4 0 01-8 0" stroke="#43B02A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Siva Thota <span style="color:var(--green);font-weight:800;">·</span> APM Case Study</span>
       </div>
       <ul class="nav-links" id="nav-links">
         <li><a href="#context">Context</a></li>
@@ -1168,10 +1381,10 @@
           The Caper Cart Has a<br /><em>Positioning Problem.</em><br />Here Is How I Would Fix It.
         </h1>
         <p class="hero-subhead fade-up" style="transition-delay:160ms">
-          A product case study by Siva Thota — APM Candidate, Instacart
+          A product case study by Siva Thota, APM Candidate at Instacart
         </p>
         <p class="hero-note fade-up" style="transition-delay:240ms">
-          I selected the Caper Cart adoption challenge to demonstrate how I think about product. It sits at the intersection of AI, behavioral change, and marketplace dynamics — where my background is strongest.
+          I selected the Caper Cart adoption challenge to demonstrate how I think about product. It sits at the intersection of AI, behavioral change, and marketplace dynamics, which is precisely where my background is strongest.
         </p>
         <button class="hero-cta fade-up" style="transition-delay:320ms" onclick="document.getElementById('context').scrollIntoView({behavior:'smooth'})">
           Read the Case
@@ -1212,6 +1425,52 @@
           <div class="stat-label">Shoppers Who Never Use a Cart</div>
         </div>
       </div>
+
+      <!-- DATA CHART: Smart Cart Market Growth -->
+      <div class="growth-chart fade-up chart-anim" style="transition-delay:240ms" aria-label="Smart cart market growth projection">
+        <div class="data-chart-title">Smart Cart Technology: A Market Accelerating Fast</div>
+        <div class="data-chart-subtitle">Global smart shopping cart market size (USD billions) &nbsp;·&nbsp; CAGR 28.5% through 2029</div>
+        <div class="growth-bars" id="growth-bars">
+          <div class="growth-bar-col">
+            <div class="growth-bar-amount">$1.7B</div>
+            <div class="growth-bar-fill highlight" data-height="32"></div>
+            <div class="growth-bar-year">2024</div>
+          </div>
+          <div class="growth-bar-col">
+            <div class="growth-bar-amount">$2.2B</div>
+            <div class="growth-bar-fill highlight" data-height="42"></div>
+            <div class="growth-bar-year">2025</div>
+          </div>
+          <div class="growth-bar-col">
+            <div class="growth-bar-amount">$2.8B</div>
+            <div class="growth-bar-fill highlight" data-height="53"></div>
+            <div class="growth-bar-year">2026</div>
+          </div>
+          <div class="growth-bar-col">
+            <div class="growth-bar-amount">$3.6B</div>
+            <div class="growth-bar-fill highlight" data-height="68"></div>
+            <div class="growth-bar-year">2027</div>
+          </div>
+          <div class="growth-bar-col">
+            <div class="growth-bar-amount">$4.6B</div>
+            <div class="growth-bar-fill highlight" data-height="87"></div>
+            <div class="growth-bar-year">2028</div>
+          </div>
+          <div class="growth-bar-col">
+            <div class="growth-bar-amount">$5.3B</div>
+            <div class="growth-bar-fill highlight active" data-height="100"></div>
+            <div class="growth-bar-year">2029</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span class="growth-cagr-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            28.5% CAGR
+          </span>
+          <span style="font-size:12px;color:var(--gray-text);">Instacart is positioned to capture a category growing nearly 30% year over year.</span>
+        </div>
+        <div class="data-chart-source">Source: Research &amp; Markets Smart Shopping Cart Market Report 2025</div>
+      </div>
     </div>
   </section>
 
@@ -1230,7 +1489,7 @@
         <p>Instacart launched Caper Cart with one headline: <strong>skip the checkout line</strong>. That framing did not drive the retention the team needed. When Instacart spoke directly with shoppers using the carts, the real reason they came back had nothing to do with checkout speed. They returned because the cart helped them track their budget and discover savings in real time.</p>
         <br />
         <p>The product was built around the right technology but framed around the wrong shopper motivation.</p>
-        <p class="source-tag">Sources: Grocery Dive Aug 2025 — Fortune Jul 2024 — RetailWire Feb 2025</p>
+        <p class="source-tag">Sources: Grocery Dive (Aug 2025), Fortune (Jul 2024), RetailWire (Feb 2025)</p>
       </div>
 
       <!-- INFOGRAPHIC: Before/After -->
@@ -1244,7 +1503,7 @@
           <div class="ba-col ba-col-left">
             <div class="ba-icon ba-icon-left">🛒</div>
             <h3>Skip the checkout line.</h3>
-            <p>The feature led with speed. Get through the register faster. No waiting. The pitch centered on convenience at the end of the trip — not value throughout it.</p>
+            <p>The feature led with speed. Get through the register faster. No waiting. The pitch centered on convenience at the end of the trip, not value throughout it.</p>
             <div class="ba-tag ba-tag-left">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
               Didn't drive retention
@@ -1254,13 +1513,42 @@
           <div class="ba-col ba-col-right">
             <div class="ba-icon ba-icon-right">💰</div>
             <h3>Budget tracking and real-time savings.</h3>
-            <p>Shoppers returned because the cart gave them financial control mid-trip — a running total and live coupon discovery that changed how they shopped, not just how they checked out.</p>
+            <p>Shoppers returned because the cart gave them financial control mid-trip: a running total and live coupon discovery that changed how they shopped, not just how they checked out.</p>
             <div class="ba-tag ba-tag-right">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               What actually kept them coming back
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- DATA CHART: Caper Cart user engagement data -->
+      <div class="data-chart fade-up chart-anim" style="transition-delay:240ms" aria-label="Caper Cart user engagement statistics">
+        <div class="data-chart-title">What the Data Shows About Caper Cart Users</div>
+        <div class="data-chart-subtitle">Confirmed engagement metrics from Instacart retailer pilots and Q4 2024 earnings</div>
+
+        <div class="bar-row">
+          <div class="bar-label">Log in with loyalty card before shopping</div>
+          <div class="bar-track"><div class="bar-fill" data-width="90"></div></div>
+          <div class="bar-value">90%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Redeem at least one coupon during checkout</div>
+          <div class="bar-track"><div class="bar-fill" data-width="55"></div></div>
+          <div class="bar-value">50%+</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Redeem a discount offer for use on Instacart online</div>
+          <div class="bar-track"><div class="bar-fill orange" data-width="40"></div></div>
+          <div class="bar-value">40%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Retailers reporting double-digit basket size lift</div>
+          <div class="bar-track"><div class="bar-fill charcoal" data-width="100"></div></div>
+          <div class="bar-value">Most pilots</div>
+        </div>
+
+        <div class="data-chart-source">Sources: Instacart Q4 2024 Earnings (CEO Fidji Simo), Instacart Caper Cart Retailer Pilot Data, Modern Retail (2024)</div>
       </div>
     </div>
   </section>
@@ -1277,10 +1565,10 @@
       <div class="section-body fade-up" style="transition-delay:80ms">
         <p>Roughly 70% of grocery shoppers never pick up a cart at all. They walk in for a few items and leave. The addressable shopper for Caper Cart is the planned, basket-building, budget-conscious shopper who already has a reason to push a cart.</p>
         <br />
-        <p>That shopper does not need a faster checkout experience. They need a smarter one. They want to see their running total before they reach the register. They want a relevant deal surfaced when they walk past the dairy aisle — not after the moment has passed.</p>
+        <p>That shopper does not need a faster checkout experience. They need a smarter one. They want to see their running total before they reach the register. They want a relevant deal surfaced when they walk past the dairy aisle, not after the moment has passed.</p>
         <br />
         <p>The infrastructure to deliver this already exists. Instacart integrated <strong>NVIDIA Jetson</strong> into Caper Carts in late 2024, enabling real-time personalized recommendations based on cart contents, aisle location, and purchase history. The AI capability is in place. The product framing and onboarding have not yet caught up to it.</p>
-        <p class="source-tag">Sources: RetailWire Feb 2025 — Grocery Dive Aug 2025 — Grocery Dive Mar 2025</p>
+        <p class="source-tag">Sources: RetailWire (Feb 2025), Grocery Dive (Aug 2025), Grocery Dive (Mar 2025)</p>
       </div>
 
       <!-- INFOGRAPHIC: Pipeline -->
@@ -1306,9 +1594,42 @@
         <div class="pipeline-step">
           <div class="pipeline-num">3</div>
           <h4>Personalized savings surfaced in real time</h4>
-          <p>Relevant coupons and budget-aware nudges appear exactly when and where they create value — mid-trip, not at checkout.</p>
+          <p>Relevant coupons and budget-aware nudges appear exactly when and where they create value: mid-trip, not at checkout.</p>
           <div class="pipeline-chip">Value Delivery</div>
         </div>
+      </div>
+
+      <!-- DATA CHART: Shopper budget anxiety -->
+      <div class="data-chart fade-up chart-anim" style="transition-delay:200ms" aria-label="Grocery shopper budget anxiety statistics">
+        <div class="data-chart-title">The Market Need Is Undeniable: Shoppers Are Stressed About Grocery Costs</div>
+        <div class="data-chart-subtitle">Grocery shopper price anxiety data, 2024–2025 surveys across U.S. consumers</div>
+
+        <div class="bar-row">
+          <div class="bar-label">Frustrated with overall grocery costs</div>
+          <div class="bar-track"><div class="bar-fill" data-width="86"></div></div>
+          <div class="bar-value">86%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Extremely or very worried about rising prices</div>
+          <div class="bar-track"><div class="bar-fill" data-width="70"></div></div>
+          <div class="bar-value">70%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Actively use coupons or deals to save money</div>
+          <div class="bar-track"><div class="bar-fill orange" data-width="65"></div></div>
+          <div class="bar-value">65%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Choose stores based on best prices over loyalty</div>
+          <div class="bar-track"><div class="bar-fill orange" data-width="75"></div></div>
+          <div class="bar-value">75%</div>
+        </div>
+
+        <div style="margin-top:16px;padding:14px 16px;background:rgba(67,176,42,0.06);border-radius:8px;border-left:3px solid var(--green);">
+          <p style="font-size:13px;color:#3C3C36;line-height:1.6;"><strong style="color:var(--charcoal);">The insight:</strong> Grocery shoppers are not looking for a faster checkout. They are looking for financial control. Caper Cart can give them exactly that. The product just needs to lead with it.</p>
+        </div>
+
+        <div class="data-chart-source">Sources: Food Dive (2025), Engage3 Grocery Inflation Report (2024), FMI Food Trends Report (2025), USDA ERS Food Price Outlook</div>
       </div>
     </div>
   </section>
@@ -1361,7 +1682,7 @@
         </div>
         <div class="metric-card fade-up" style="transition-delay:240ms">
           <div class="metric-icon">🔁</div>
-          <div class="metric-title">30-Day Return Rate — First-Time Caper Users</div>
+          <div class="metric-title">30-Day Return Rate: First-Time Caper Users</div>
           <div class="metric-desc">Whether first-time Caper Cart users return and re-activate within 30 days. Determines if the repositioned experience creates genuine habit formation.</div>
           <div class="metric-status">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
@@ -1478,7 +1799,7 @@
           <div class="exp-content">
             <div class="exp-org">Dartmouth Career Design</div>
             <h3>Launched a 0→1 AI assistant that tripled adoption in one semester</h3>
-            <p>Root cause was identical to Caper Cart: onboarding framed around the wrong user motivation. Fixing the story — not the technology — drove the result. Took adoption from 12% to 38% by rewriting the first-interaction experience around student outcomes rather than tool features.</p>
+            <p>Root cause was identical to Caper Cart: onboarding framed around the wrong user motivation. Fixing the story, not the technology, drove the result. Took adoption from 12% to 38% by rewriting the first-interaction experience around student outcomes rather than tool features.</p>
           </div>
         </div>
 
@@ -1487,7 +1808,7 @@
           <div class="exp-content">
             <div class="exp-org">myTurn B2B Marketplace</div>
             <h3>Shipped automation across a complex multi-stakeholder environment</h3>
-            <p>Aligned Design, Engineering, Sales, and GTM around a single execution plan backed by data. Navigated competing priorities and ambiguous requirements to ship on time with measurable business impact — the exact operating model an APM needs on day one at Instacart.</p>
+            <p>Aligned Design, Engineering, Sales, and GTM around a single execution plan backed by data. Navigated competing priorities and ambiguous requirements to ship on time with measurable business impact. This is exactly the operating model an APM needs on day one at Instacart.</p>
           </div>
         </div>
 
@@ -1496,7 +1817,7 @@
           <div class="exp-content">
             <div class="exp-org">Pivio AI &amp; Relayar</div>
             <h3>Grew Pivio AI to 1,200 MAUs · Built Relayar from zero</h3>
-            <p>Understand what it takes to position an AI product for adoption — not just to ship it. Relayar is an agent governance platform built from scratch. Both projects required translating complex AI capability into a story that non-technical users would trust and return to.</p>
+            <p>Understand what it takes to position an AI product for adoption, not just to ship it. Relayar is an agent governance platform built from scratch. Both projects required translating complex AI capability into a story that non-technical users would trust and return to.</p>
           </div>
         </div>
       </div>
@@ -1522,9 +1843,9 @@
             kumarteja.80@gmail.com
           </a>
           <div class="footer-dot"></div>
-          <a href="https://linkedin.com/in/siva-thota" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/sivakumarthota/" target="_blank" rel="noopener noreferrer">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            linkedin.com/in/siva-thota
+            linkedin.com/in/sivakumarthota
           </a>
         </div>
         <hr class="footer-divider" />
@@ -1644,6 +1965,30 @@
     }, { threshold: 0.5 });
 
     document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+    // ── Bar chart animation ───────────────────────────────────
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate horizontal bars
+          entry.target.querySelectorAll('.bar-fill').forEach((bar, i) => {
+            const w = bar.dataset.width || '0';
+            setTimeout(() => { bar.style.width = w + '%'; }, i * 120);
+          });
+          // Animate vertical growth bars
+          entry.target.querySelectorAll('.growth-bar-fill').forEach((bar, i) => {
+            const h = bar.dataset.height || '0';
+            setTimeout(() => {
+              bar.style.height = h + '%';
+              bar.classList.add('active');
+            }, i * 100);
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.chart-anim').forEach(el => barObserver.observe(el));
 
     // ── Smooth scroll for anchor links ────────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(a => {
